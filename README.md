@@ -1,7 +1,7 @@
-# Sentita
+# SentITA
 Sentiment polarity classification in Italian
 
-Currently Sentita is an alpha version
+Currently SentITA is an alpha version
 
 ## How to install Sentita:
 1. Dowload Sentita from this [link](https://drive.google.com/file/d/1s1BW3T_BysAhVZPai-3AUXpb68aYjQTS/view?usp=sharing)
