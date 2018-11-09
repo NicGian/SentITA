@@ -3,14 +3,14 @@ Sentiment polarity classification in Italian
 
 Currently Sentita is an alpha version
 
-How to install Sentita:
-1. Dowload Sentita from this [link][https://drive.google.com/file/d/1s1BW3T_BysAhVZPai-3AUXpb68aYjQTS/view?usp=sharing]
+## How to install Sentita:
+1. Dowload Sentita from this [link](https://drive.google.com/file/d/1s1BW3T_BysAhVZPai-3AUXpb68aYjQTS/view?usp=sharing)
 2. Unzip the archive
 3. cd into the unzipped folder from the console
 4. type in the console "pip install ." to install the package locally
 
 
-How to use Sentita:
+## How to use Sentita:
 1. Import the function to calculate the polarity scores with the following code:
 	from sentita import calculate_polarity
 	
