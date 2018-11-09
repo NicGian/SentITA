@@ -1,0 +1,2 @@
+include sentita/test_sentita_lstm-cnn_wikiner_v1.h5
+include sentita/wemb_ind.pkl
