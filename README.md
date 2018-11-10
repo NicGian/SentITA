@@ -1,7 +1,7 @@
 # SentITA
 Sentiment polarity classification in Italian
 
-Currently SentITA is an alpha version
+Currently SentITA is an alpha version and has been tested with Keras 2.2.4, Tensorflow 1.11 and Spacy 2.0
 
 ## How to install Sentita:
 1. Dowload Sentita from this [link](https://drive.google.com/file/d/1s1BW3T_BysAhVZPai-3AUXpb68aYjQTS/view?usp=sharing)
