@@ -14,9 +14,7 @@ import pickle
 import spacy
 import re
 import os
-path = os.path.abspath(__file__)
-dir_path = os.path.dirname(path)+'\\'
-#print(dir_path)
+path = os.path.dirname(__file__)
 
 MAX_SEQUENCE_LENGTH = 35
 EMBEDDING_DIM = 300
@@ -24,7 +22,7 @@ MAX_N_WEMBS = 200000
 nlp = spacy.load('it')
 NB_WEMBS = MAX_N_WEMBS
 
-with open(dir_path + 'wemb_ind.pkl', 'rb') as f:    
+with open(os.path.join(path,'wemb_ind.pkl'), 'rb') as f:    
     wemb_ind = pickle.load(f)
 
 
@@ -80,7 +78,7 @@ def load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
     
     STAMP = 'test_sentita_lstm-cnn_wikiner_v1'
     #early_stopping = EarlyStopping(monitor='val_loss', patience=7)
-    bst_model_path = dir_path + STAMP + '.h5'
+    bst_model_path = os.path.join(path, STAMP + '.h5')
     #checkpointer = ModelCheckpoint(bst_model_path, save_best_only=True, save_weights_only=True)
     model_pol.load_weights(bst_model_path)
     return model_pol
