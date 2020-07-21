@@ -78,7 +78,7 @@ def load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
     
     STAMP = 'test_sentita_lstm-cnn_wikiner_v1'
     #early_stopping = EarlyStopping(monitor='val_loss', patience=7)
-    bst_model_path = os.path.join(path, os.environ['SENTITA_MODEL'], STAMP + '.h5')
+    bst_model_path = os.path.join(path, os.environ['SENTITA_MODEL_PATH'], STAMP + '.h5')
     #checkpointer = ModelCheckpoint(bst_model_path, save_best_only=True, save_weights_only=True)
     model_pol.load_weights(bst_model_path)
     return model_pol
