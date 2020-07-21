@@ -5,10 +5,10 @@ Created on Thu Aug 30 15:04:00 2018
 @author: gianc
 """
 
-from keras.layers import Bidirectional, Dense, Embedding, Input, Lambda, LSTM, Layer, Activation, Dropout, concatenate, Flatten, MaxPooling1D, AveragePooling1D, Conv1D
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import Model
-from keras import backend as K
+from tensorflow.keras.layers import Bidirectional, Dense, Embedding, Input, Lambda, LSTM, Layer, Activation, Dropout, concatenate, Flatten, MaxPooling1D, AveragePooling1D, Conv1D
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Model
+import tensorflow as K
 import numpy as np
 import pickle
 import spacy
