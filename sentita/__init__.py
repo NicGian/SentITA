@@ -78,7 +78,7 @@ def load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
     
     STAMP = 'test_sentita_lstm-cnn_wikiner_v1'
     #early_stopping = EarlyStopping(monitor='val_loss', patience=7)
-    if 'SENTITA_MODEL_PATH' in os.environ['SENTITA_MODEL_PATH'].keys():
+    if 'SENTITA_MODEL_PATH' in os.environ.keys():
         path_model = os.environ['SENTITA_MODEL_PATH']
     else:
         path_model = path
