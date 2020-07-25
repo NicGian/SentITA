@@ -1,8 +1,8 @@
 # SentITA
 Sentiment polarity classification in Italian
 
-Currently SentITA is an alpha version and has been tested with Keras 2.2.4, Tensorflow 1.11 and Spacy 2.0 with the models for Italian.
-Once installed Spacy it's necessary to run "python -m spacy download it" to download the models for Italian.
+This fork of SentITA has been tested with Tensorflow 2.0.0 and Spacy 2.3.2 with the models for Italian.
+Once installed Spacy it's necessary to run "python -m spacy download it_core_news_sm" to download the models for Italian.
 
 ## How to install Sentita:
 1. Dowload Sentita from this [link](https://drive.google.com/file/d/1s1BW3T_BysAhVZPai-3AUXpb68aYjQTS/view?usp=sharing)
