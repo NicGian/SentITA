@@ -1,0 +1,12 @@
+#files
+*.pkl
+*h5
+.ipynb_checkpoints
+__pycache__/
+*.ipynb
+
+# PyCharm
+.idea/
+
+# vscode
+.vscode

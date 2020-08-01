@@ -10,6 +10,6 @@ setup(name='sentita',
       packages=find_packages(),
       include_package_data=True,
       install_requires=[
-          'keras', 'spacy', 'numpy',
+          'tensorflow', 'spacy', 'numpy',
       ],
       zip_safe=False)

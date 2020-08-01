@@ -5,10 +5,10 @@ Created on Thu Aug 30 15:04:00 2018
 @author: gianc
 """
 
-from keras.layers import Bidirectional, Dense, Embedding, Input, Lambda, LSTM, Layer, Activation, Dropout, concatenate, Flatten, MaxPooling1D, AveragePooling1D, Conv1D
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import Model
-from keras import backend as K
+from tensorflow.keras.layers import Bidirectional, Dense, Embedding, Input, Lambda, LSTM, Layer, Activation, Dropout, concatenate, Flatten, MaxPooling1D, AveragePooling1D, Conv1D
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Model
+import tensorflow as K
 import numpy as np
 import pickle
 import spacy
@@ -19,7 +19,7 @@ path = os.path.dirname(__file__)
 MAX_SEQUENCE_LENGTH = 35
 EMBEDDING_DIM = 300
 MAX_N_WEMBS = 200000
-nlp = spacy.load('it')
+nlp = spacy.load('it_core_news_sm')
 NB_WEMBS = MAX_N_WEMBS
 
 with open(os.path.join(path,'wemb_ind.pkl'), 'rb') as f:    
@@ -78,7 +78,11 @@ def load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
     
     STAMP = 'test_sentita_lstm-cnn_wikiner_v1'
     #early_stopping = EarlyStopping(monitor='val_loss', patience=7)
-    bst_model_path = os.path.join(path, STAMP + '.h5')
+    if 'SENTITA_MODEL_PATH' in os.environ.keys():
+        path_model = os.environ['SENTITA_MODEL_PATH']
+    else:
+        path_model = path
+    bst_model_path = os.path.join(path_model, STAMP + '.h5')
     #checkpointer = ModelCheckpoint(bst_model_path, save_best_only=True, save_weights_only=True)
     model_pol.load_weights(bst_model_path)
     return model_pol
@@ -97,23 +101,7 @@ def calculate_polarity(sentences):
 
     sent_model = load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM)
     preds = sent_model.predict([test_wemb_idxs])
-    K.clear_session()
     for i in range(n_ctest_sents):
         results.append(sentences[i] + ' - ' + 'opos: ' + str(preds[i][0]) + ' - oneg: ' + str(preds[i][1]))
         print(sentences[i],' - opos: ', preds[i][0], ' - oneg: ', preds[i][1])
     return results, preds
-
-
-
-# sentences = ["il divano era molto comodo",
-             # "il divano non era per niente comodo",
-             # "il letto era molto comodo",
-             # "il letto era estremamente comodo",
-             # "il letto era estremamente scomodo",
-             # "il letto era davvero molto molto comodo",
-             # "il cibo era davvero superbo",
-             # "il cibo era davvero buono",
-             # "il posto era davvero accogliente, i camerieri simpatici e il servizio ottimo, consigliato!",
-             # "è bello"]
-
-# calculate_polarity(sentences)
