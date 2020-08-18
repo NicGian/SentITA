@@ -22,7 +22,7 @@ MAX_SEQUENCE_LENGTH = 35
 EMBEDDING_DIM = 300
 MAX_N_WEMBS = 200000
 nlp = spacy.load('it_core_news_sm')
-nlp_sent = spacy.load('it_core_news_sm')
+# nlp_sent = spacy.load('it_core_news_sm')
 NB_WEMBS = MAX_N_WEMBS
 
 with open(os.path.join(path,'wemb_ind.pkl'), 'rb') as f:    
@@ -112,9 +112,9 @@ def calculate_polarity(sentences: list):
         # print(sentences[i],' - opos: ', preds[i][0], ' - oneg: ', preds[i][1])
     return results, preds
 
-
-def calculate_polarity_for_free_text(doc: str):
-    sentencizer = nlp_sent.create_pipe("sentencizer")
-    nlp_sent.add_pipe(sentencizer)
-    doc = nlp_sent(doc)
-    return calculate_polarity(list(doc.sents))
+#
+# def calculate_polarity_for_free_text(doc: str):
+#     sentencizer = nlp_sent.create_pipe("sentencizer")
+#     nlp_sent.add_pipe(sentencizer)
+#     doc = nlp_sent(doc)
+#     return calculate_polarity(list(doc.sents))
