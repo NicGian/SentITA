@@ -60,7 +60,7 @@ def create_features(text, maxlen):
 
 #================ Model ======================#
 
-class Model(metaclass=Singleton):
+class SentitaModel(metaclass=Singleton):
     def __init__(self, MAX_SEQUENCE_LENGTH, EMBEDDING_DIM):
         self.load_model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM)
 
@@ -104,7 +104,7 @@ def calculate_polarity(sentences):
 
     test_wemb_idxs = np.reshape(np.array([e[0] for e in X_ctest]), [n_ctest_sents, MAX_SEQUENCE_LENGTH])
 
-    sent_model = Model(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM).model_pol
+    sent_model = SentitaModel(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM).model_pol
     preds = sent_model.predict([test_wemb_idxs])
     for i in range(n_ctest_sents):
         results.append(sentences[i] + ' - ' + 'opos: ' + str(preds[i][0]) + ' - oneg: ' + str(preds[i][1]))
